@@ -1,3 +1,88 @@
+## 4.3.0 - 2024-08-22
+
+### What's Changed
+
+* Fix empty PDF issue with Puppeteer ^23.0.0  by @JeppeKnockaert in https://github.com/spatie/browsershot/pull/876
+
+**Full Changelog**: https://github.com/spatie/browsershot/compare/4.2.1...4.3.0
+
+## 4.2.1 - 2024-08-20
+
+Revert changes of 4.2.1 because PDFs do not render correctly anymore (see https://github.com/spatie/laravel-pdf/issues/175)
+
+**Full Changelog**: https://github.com/spatie/browsershot/compare/4.2.0...4.2.1
+
+## 4.2.0 - 2024-08-20
+
+### What's Changed
+
+* Add options to set protocol timeout by @zarulizham in https://github.com/spatie/browsershot/pull/865
+* Update Laravel Forge instructions.md by @mchev in https://github.com/spatie/browsershot/pull/872
+* Correctly respond to disableCaptureURLS option by @bluesheep100 in https://github.com/spatie/browsershot/pull/871
+* add disableCaptureURLs() document by @ziaratban in https://github.com/spatie/browsershot/pull/864
+* Update handling of browser output for Puppeteer ^23.0.0 by @bluesheep100 in https://github.com/spatie/browsershot/pull/870
+
+### New Contributors
+
+* @zarulizham made their first contribution in https://github.com/spatie/browsershot/pull/865
+* @mchev made their first contribution in https://github.com/spatie/browsershot/pull/872
+* @bluesheep100 made their first contribution in https://github.com/spatie/browsershot/pull/871
+
+**Full Changelog**: https://github.com/spatie/browsershot/compare/4.1.3...4.2.0
+
+## 4.1.3 - 2024-07-15
+
+### What's Changed
+
+* option to disable the capturing request by @ziaratban in https://github.com/spatie/browsershot/pull/861
+
+### New Contributors
+
+* @ziaratban made their first contribution in https://github.com/spatie/browsershot/pull/861
+
+**Full Changelog**: https://github.com/spatie/browsershot/compare/4.1.2...4.1.3
+
+## 4.1.2 - 2024-07-15
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 2.1.0 to 2.2.0 by @dependabot in https://github.com/spatie/browsershot/pull/860
+* Fix - Clean up the temporary options file when browser was called successfully by @Ardenexal in https://github.com/spatie/browsershot/pull/863
+
+### New Contributors
+
+* @Ardenexal made their first contribution in https://github.com/spatie/browsershot/pull/863
+
+**Full Changelog**: https://github.com/spatie/browsershot/compare/4.1.1...4.1.2
+
+## 4.1.1 - 2024-07-03
+
+### What's Changed
+
+* Issue with Windows temp path fixed by @SyedMuradAliShah in https://github.com/spatie/browsershot/pull/858
+
+### New Contributors
+
+* @SyedMuradAliShah made their first contribution in https://github.com/spatie/browsershot/pull/858
+
+**Full Changelog**: https://github.com/spatie/browsershot/compare/4.1.0...4.1.1
+
+## 4.1.0 - 2024-06-12
+
+### What's Changed
+
+* Prevent taking screenshots twice by @clementmas in https://github.com/spatie/browsershot/pull/849
+
+**Full Changelog**: https://github.com/spatie/browsershot/compare/4.0.5...4.1.0
+
+## 4.0.5 - 2024-06-04
+
+### What's Changed
+
+* Fix save method if there are no image manipulations by @moisish in https://github.com/spatie/browsershot/pull/847
+
+**Full Changelog**: https://github.com/spatie/browsershot/compare/4.0.4...4.0.5
+
 ## 4.0.4 - 2024-05-24
 
 ### What's Changed

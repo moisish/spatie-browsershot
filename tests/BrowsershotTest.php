@@ -222,6 +222,27 @@ it('can disable images', function () {
     ], $command);
 });
 
+it('can disable capture urls', function () {
+    $command = Browsershot::url('https://example.com')
+        ->disableCaptureURLS()
+        ->createScreenshotCommand('screenshot.png');
+
+    $this->assertEquals([
+        'url' => 'https://example.com',
+        'action' => 'screenshot',
+        'options' => [
+            'disableCaptureURLS' => true,
+            'path' => 'screenshot.png',
+            'viewport' => [
+                'width' => 800,
+                'height' => 600,
+            ],
+            'args' => [],
+            'type' => 'png',
+        ],
+    ], $command);
+});
+
 it('can block urls', function () {
     $command = Browsershot::url('https://example.com')
         ->blockUrls([
@@ -983,7 +1004,9 @@ it('can handle a permissions error with full output', function () {
 
     $this->expectException(ProcessFailedException::class);
 
-    $instance = Browsershot::url('https://example.com');
+    // Block the favicon request to prevent randomness in the output.
+    $instance = Browsershot::url('https://example.com')
+        ->blockUrls(['https://example.com/favicon.ico']);
 
     try {
         $instance->save($targetPath);
@@ -993,7 +1016,14 @@ it('can handle a permissions error with full output', function () {
         expect($output)->not()->toBeNull();
         expect($output)->toBeInstanceOf(ChromiumResult::class);
         expect($output->getException())->not()->toBeEmpty();
-        expect($output->getConsoleMessages())->toBe([]);
+        expect($output->getConsoleMessages())->toBe([
+            [
+                'type' => 'error',
+                'message' => 'Failed to load resource: net::ERR_FAILED',
+                'location' => ['url' => 'https://example.com/favicon.ico'],
+                'stackTrace' => [['url' => 'https://example.com/favicon.ico']],
+            ],
+        ]);
         expect($output->getRequestsList())->toMatchArray([[
             'url' => 'https://example.com/',
         ]]);
